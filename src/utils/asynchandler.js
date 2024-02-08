@@ -14,7 +14,8 @@
 }*/
 
 
-const asynchanlder=(requeshandler)=>{(req,res,next)=>{
+const asynchanlder=(requeshandler)=>{
+    return (req,res,next)=>{
     Promise.resolve(requeshandler(req,res,next)).
     catch((err)=>next(err))
 }
