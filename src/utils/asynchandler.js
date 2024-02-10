@@ -1,7 +1,7 @@
-//const asynchanlder=()=>{}; 
+/*const asynchanlder=()=>{}; 
 
 
-/*const  asynchanlder=(fn)=>async (req,res,next)=>{
+const  asynchanlder=(fn)=>async (req,res,next)=>{
     try {
         await fn(req,res,next)
     } catch (error) {
@@ -20,4 +20,4 @@ const asynchanlder=(requeshandler)=>{
     catch((err)=>next(err))
 }
 }
-export {asynchandler}
+export {asynchanlder}

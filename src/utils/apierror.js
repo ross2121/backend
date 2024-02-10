@@ -1,4 +1,6 @@
-class  apierror extends error{
+import { Error } from "mongoose";
+
+class  apierror extends Error{
     constructor(
 statuscode,
 message="something went wrong",
@@ -10,13 +12,13 @@ stack=""
         this.data=null
         this.message=message
         this.sucess=false;
-        this.errors=this.errors
+        this.errors=errors
 
         if(stack){
             this.stack=stack
         }
         else{
-            error.capturestacktrace(this,this.constructor)
+            Error.captureStackTrace(this,this.constructor)
         }
     }
     

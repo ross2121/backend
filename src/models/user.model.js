@@ -1,7 +1,7 @@
 
 import mongoose,{Schema} from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
-import { Jwt } from "jsonwebtoken";
+import  Jwt  from "jsonwebtoken";
 import bcrypt from "bcrypt"
 const userschema=new Schema(
     {
@@ -51,13 +51,12 @@ refreshtoken:{
 
 },{timestamps:true})
 userschema.pre("save",async function (next){
-    if(this.ismodified("password")){
-    this.password=bcrypt.hash(this.password,10)
-    }
-    else {
+    if(!this.ismodified("password")) return next()
+    this.password= await bcrypt.hash(this.password,10)
+   
     next()
     }
-})
+)
 videoschema.plugin(mongooseAggregatePaginate)
 
 userschema.methods.ispasswordcorrect=async function(password){

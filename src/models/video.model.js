@@ -33,13 +33,13 @@ const videschema=new Schema({
     },
     owner:{
         type:Schema.type.objectid,
-        ref:"user",
+        ref:"user"
 
-    },
+    }
 
 
 
     
 },{timestamps:true})
 videschema.plugin(mongooseAggregatePaginate)
-export const video=mongoose.model("video",videoschema)
+export const video=mongoose.model("video",videschema)
